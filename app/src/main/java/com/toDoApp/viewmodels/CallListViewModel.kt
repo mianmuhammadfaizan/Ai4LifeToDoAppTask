@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.toDoApp.models.CallDataModel
 import com.toDoApp.models.searchByName
 import com.toDoApp.models.sortByName
+import com.toDoApp.network.GetCallsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

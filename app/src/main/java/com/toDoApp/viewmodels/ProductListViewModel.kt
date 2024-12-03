@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.toDoApp.models.ProductDataModel
+import com.toDoApp.network.GetProductUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -34,6 +35,17 @@ class ProductListViewModel @Inject constructor(
                 isLoading.value = false
             }
         }
+    }
+    fun updateQuantity(productId: Int, increment: Boolean) {
+        val updatedList = productList.value.map { product ->
+            if (product.id == productId) {
+                // Update the quantity
+                product.copy(quantity = product.quantity + if (increment) 1 else -1)
+            } else {
+                product
+            }
+        }
+        productList.value = updatedList // Reassign to trigger recomposition
     }
 
 

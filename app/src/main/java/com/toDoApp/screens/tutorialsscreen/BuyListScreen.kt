@@ -1,5 +1,6 @@
 package com.toDoApp.screens.tutorialsscreen
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -24,6 +25,7 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
@@ -40,22 +42,25 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun BuyListScreen(productListViewModel: ProductListViewModel, onNavigate: (String) -> Unit) {
-    Scaffold(modifier = Modifier.fillMaxSize(), topBar = {
+    Scaffold(
+        modifier = Modifier.fillMaxSize(),
+        topBar = {
 
-        CustomTopBar(
-            title = stringResource(id = R.string.buy_list),
-            onBackPress =
-            {
-                onNavigate("")
+            CustomTopBar(
+                title = stringResource(id = R.string.buy_list),
+                onBackPress =
+                {
+                    onNavigate("")
+                }
+
+            ) {
+
+
             }
 
-        ) {
 
-
-        }
-
-
-    }, ) { paddingValues ->
+        },
+    ) { paddingValues ->
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
@@ -83,8 +88,8 @@ fun BuyListScreen(productListViewModel: ProductListViewModel, onNavigate: (Strin
                     productListViewModel.productList.value.forEachIndexed { index, product ->
                         if (product.type == 1) {
 
-                            BuyListSingleItemView(product){
-                                product.quantity += 1
+                            BuyListSingleItemView(product) {
+                                productListViewModel.updateQuantity(product.id, true)
                             }
                         }
 
@@ -99,7 +104,7 @@ fun BuyListScreen(productListViewModel: ProductListViewModel, onNavigate: (Strin
 
 @Composable
 
-fun BuyListSingleItemView(productItem: ProductDataModel,onAddClicked:()->Unit) {
+fun BuyListSingleItemView(productItem: ProductDataModel, onAddClicked: () -> Unit) {
     Card(
         modifier = Modifier
             .padding(top = 10.dp)
@@ -169,7 +174,7 @@ fun BuyListSingleItemView(productItem: ProductDataModel,onAddClicked:()->Unit) {
                         )
                 )
             }
-            Row() {
+            Row(verticalAlignment = Alignment.CenterVertically) {
                 CustomText(
                     isSingleLine = true,
                     modifier = Modifier,
@@ -194,10 +199,12 @@ fun BuyListSingleItemView(productItem: ProductDataModel,onAddClicked:()->Unit) {
 
                         )
                 )
+                IconButton(onClick = { onAddClicked() }, modifier = Modifier.padding(start = 50.dp, bottom = 5.dp).size(30.dp).background(Color.White, shape = RoundedCornerShape(50.dp))) {
+                    Icon(Icons.Default.Add, contentDescription = "Localized description")
+                }
             }
-            IconButton(onClick = { onAddClicked()}) {
-                Icon(Icons.Default.Add, contentDescription = "Localized description")
-            }
+
+
         }
 
     }

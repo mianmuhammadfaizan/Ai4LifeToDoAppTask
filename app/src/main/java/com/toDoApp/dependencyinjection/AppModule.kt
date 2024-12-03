@@ -12,10 +12,10 @@ import com.toDoApp.storage.database.InsertSellUseCase
 import com.toDoApp.storage.database.SellDao
 import com.toDoApp.storage.database.SellRepository
 import com.toDoApp.storage.database.UpdateSellUseCase
-import com.toDoApp.viewmodels.CallRepository
-import com.toDoApp.viewmodels.CallRepositoryImpl
-import com.toDoApp.viewmodels.GetCallsUseCase
-import com.toDoApp.viewmodels.GetProductUseCase
+import com.toDoApp.network.CallRepository
+import com.toDoApp.network.CallRepositoryImpl
+import com.toDoApp.network.GetCallsUseCase
+import com.toDoApp.network.GetProductUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
