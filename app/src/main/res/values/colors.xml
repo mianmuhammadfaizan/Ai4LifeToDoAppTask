@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="setting_row">#F3F3F3</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="disable_button">#BCBABA</color>
+    <color name="light_gray">#7E7E7E</color>
+    <color name="icon_black">#505050</color>
+    <color name="search_bar">#EEEEEE</color>
+    <color name="purchase_button">#F4C830</color>
+    <color name="blue">#007AFE</color>
+    <color name="setting_text">#8F8F8F</color>
+    <color name="light_blue">#F0F7FF</color>
+    <color name="text_black">#303030</color>
+    <color name="edit_text">#F1F1F1</color>
+    <color name="light_blur">#1177FF</color>
+    <color name="sky_blur">#70C1FC</color>
+    <color name="light_sky_blur">#C6E1FF</color>
+    <color name="app_surface">#EAF0FF</color>
+    <color name="black_language">#202020</color>
+    <color name="black_screenBg">#1A1B20</color>
+    <color name="setting_premium_card">#4D4D4D</color>
+    <color name="go_button">#777777</color>
+    <color name="dark_dray">#303C45</color>
+
+
+
+
+
+
+
+</resources>
