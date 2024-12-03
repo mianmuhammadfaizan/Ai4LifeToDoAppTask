@@ -18,6 +18,7 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.material.RadioButton
 import androidx.compose.material.Scaffold
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
@@ -148,10 +149,7 @@ fun CallListSingleItemView(
     Card(
         shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(
-            colorResource(
-                if (callDataModel.isCalled.value) {
-                    R.color.purchase_button
-                } else R.color.light_blue
+            colorResource(R.color.light_blue
             )
         ),
         modifier = Modifier
@@ -165,66 +163,80 @@ fun CallListSingleItemView(
         ) {
 
 
-        Column(
-            modifier = Modifier
-                .padding(10.dp)
-                .fillMaxWidth(),
-            verticalArrangement = Arrangement.spacedBy(10.dp)
-        ) {
 
-            Row() {
-                CustomText(
-                    isSingleLine = true,
-                    modifier = Modifier,
-                    text = "Name : ",
-                    fontSize = 20f,
-                    textAlign = TextAlign.Center,
-                    textStyle = TextStyle(
-                        color = colorResource(id = R.color.black),
-                        fontWeight = FontWeight.W600,
+        Row(modifier = Modifier.fillMaxWidth()) {
 
-                        )
-                )
-                CustomText(
-                    isSingleLine = true,
-                    modifier = Modifier,
-                    text = callDataModel.name,
-                    fontSize = 20f,
-                    textAlign = TextAlign.Center,
-                    textStyle = TextStyle(
-                        color = colorResource(id = R.color.black),
-                        fontWeight = FontWeight.W400,
+            Column(
+                modifier = Modifier.weight(5f)
+                    .padding(10.dp)
+                    .fillMaxWidth(),
+                verticalArrangement = Arrangement.spacedBy(10.dp)
+            ) {
 
-                        )
+                Row() {
+                    CustomText(
+                        isSingleLine = true,
+                        modifier = Modifier,
+                        text = "Name : ",
+                        fontSize = 20f,
+                        textAlign = TextAlign.Center,
+                        textStyle = TextStyle(
+                            color = colorResource(id = R.color.black),
+                            fontWeight = FontWeight.W600,
+
+                            )
+                    )
+                    CustomText(
+                        isSingleLine = true,
+                        modifier = Modifier,
+                        text = callDataModel.name,
+                        fontSize = 20f,
+                        textAlign = TextAlign.Center,
+                        textStyle = TextStyle(
+                            color = colorResource(id = R.color.black),
+                            fontWeight = FontWeight.W400,
+
+                            )
+                    )
+                }
+                Row() {
+                    CustomText(
+                        isSingleLine = true,
+                        modifier = Modifier,
+                        text = "Number : ",
+                        fontSize = 20f,
+                        textAlign = TextAlign.Center,
+                        textStyle = TextStyle(
+                            color = colorResource(id = R.color.black),
+                            fontWeight = FontWeight.W600,
+
+                            )
+                    )
+                    CustomText(
+                        isSingleLine = true,
+                        modifier = Modifier,
+                        text = callDataModel.number,
+                        fontSize = 20f,
+                        textAlign = TextAlign.Center,
+                        textStyle = TextStyle(
+                            color = colorResource(id = R.color.black),
+                            fontWeight = FontWeight.W400,
+
+                            )
+                    )
+                }
+
+            }
+            Column(modifier = Modifier.weight(1f)) {
+                RadioButton(
+                    enabled = true, onClick = {
+                        onCLicked()
+                    },
+                    selected = callDataModel.isCalled.value,
+                    modifier = Modifier.padding(top = 20.dp),
+                    interactionSource = null,
                 )
             }
-            Row() {
-                CustomText(
-                    isSingleLine = true,
-                    modifier = Modifier,
-                    text = "Number : ",
-                    fontSize = 20f,
-                    textAlign = TextAlign.Center,
-                    textStyle = TextStyle(
-                        color = colorResource(id = R.color.black),
-                        fontWeight = FontWeight.W600,
-
-                        )
-                )
-                CustomText(
-                    isSingleLine = true,
-                    modifier = Modifier,
-                    text = callDataModel.number,
-                    fontSize = 20f,
-                    textAlign = TextAlign.Center,
-                    textStyle = TextStyle(
-                        color = colorResource(id = R.color.black),
-                        fontWeight = FontWeight.W400,
-
-                        )
-                )
-            }
-
         }
 
     }
