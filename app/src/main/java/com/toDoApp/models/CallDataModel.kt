@@ -9,3 +9,10 @@ data class CallDataModel(
     var number: String,
     var isCalled: MutableState<Boolean> = mutableStateOf(false)
 )
+fun searchByName(calls: List<CallDataModel>, query: String): List<CallDataModel> {
+    return calls.filter { it.name.contains(query, ignoreCase = true) }
+}
+
+fun sortByName(calls: List<CallDataModel>): List<CallDataModel> {
+    return calls.sortedBy { it.name }
+}
